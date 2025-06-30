@@ -22,8 +22,8 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>pet-clinic-data</module>
-        <module>pet-clinic-web</module>
+<!--		<module>pet-clinic-data</module>-->
+<!--        <module>pet-clinic-web</module>-->
     </modules>
 	<scm>
 		<connection/>
