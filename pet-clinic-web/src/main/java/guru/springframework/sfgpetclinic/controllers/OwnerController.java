@@ -1,13 +1,25 @@
 package guru.springframework.sfgpetclinic.controllers;
 
-import org.springframework.stereotype.Controller;import org.springframework.web.bind.annotation.RequestMapping;
+import guru.springframework.sfgpetclinic.services.OwnerService;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.ui.Model;
+
+
 @RequestMapping("/owners")
 @Controller
 public class OwnerController {
-    @RequestMapping({"", "/","/index","/index."})
-    public String listOwners(){
-        return "owners/index";
 
+    private final OwnerService ownerService;
+
+    public OwnerController(OwnerService ownerService){
+        this.ownerService = ownerService;
+    }
+
+    @RequestMapping({"", "/","/index","/index."})
+    public String listOwners(Model model){
+        model.addAttribute("owners", ownerService.findAll());
+        return "owners/index";
     }
 }
 
